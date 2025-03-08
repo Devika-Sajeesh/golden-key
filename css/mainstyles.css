@@ -1,0 +1,499 @@
+:root {
+
+    /* overflow-x: hidden; */
+  
+   
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  
+    --white-color:                  #FAFAFA;
+    --primary-color:                #FAFAFA;
+    --secondary-color:              #8DE602;
+    --section-bg-color:             #f0f8ff;
+    --custom-btn-bg-color:          #8DE602;
+    --custom-btn-bg-hover-color:    #c01f27;
+    --dark-color:                   black;
+    --p-color:                      #717275;
+    --border-color:                 #7fffd4;
+    --link-hover-color:             rgb(7, 21, 7);
+  
+  
+    --body-font-family:             'Outfit' , sans-serif;
+  
+    --h1-font-size:                 74px;
+    --h2-font-size:                 46px;
+    --h3-font-size:                 32px;
+    --h4-font-size:                 28px;
+    --h5-font-size:                 24px;
+    --h6-font-size:                 22px;
+    --p-font-size:                  18px;
+    --btn-font-size:                14px;
+    --copyright-font-size:          16px;
+  
+    --border-radius-large:          100px;
+    --border-radius-medium:         20px;
+    --border-radius-small:          10px;
+  
+    --font-weight-light:            300;
+    --font-weight-normal:           400;
+    --font-weight-bold:             700;
+
+  }
+
+
+  /* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: black;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/*navbar*/
+.sticky-wrapper.is-sticky .navbar {
+  background-color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  margin-top: 10%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.2rem;
+  margin-right: 5%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: gray;
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: black;
+      padding: 20px;
+      text-align: center;
+  }
+
+  .nav-links.show {
+      display: flex;
+  }
+
+  .hamburger-menu {
+      display: block;
+  }
+}
+
+  
+  .navbar-brand,
+  .navbar-brand:hover {
+    color: var(--dark-color);
+    font-size: var(--h5-font-size);
+    font-weight: var(--font-weight-bold);
+    width: 100px;
+    height: 30px;
+    display: flex;
+  }
+  
+  .navbar-expand-lg .navbar-nav .nav-link {
+    border-radius: var(--border-radius-large);
+    margin: 10px;
+    padding: 10px 20px;
+  }
+  
+  .navbar-nav .nav-link {
+    display: inline-block;
+    color: var(--dark-color);
+    font-size: var(--p-font-size);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .navbar-nav .nav-link.active, 
+  .navbar-nav .nav-link:hover {
+    color: gray;
+    
+  }
+  
+  .navbar-toggler {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    width: 30px;
+    height: 35px;
+    outline: none;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background: transparent;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before,
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transition: top 300ms 50ms ease, -webkit-transform 300ms 350ms ease;
+    transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+    transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
+    top: 0;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+    transform: rotate(45deg);
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transform: rotate(-45deg);
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background: var(--dark-color);
+    transition: background 10ms 300ms ease;
+    display: block;
+    width: 30px;
+    height: 2px;
+    position: relative;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon:before,
+  .navbar-toggler .navbar-toggler-icon:after {
+    transition: top 300ms 350ms ease, -webkit-transform 300ms 50ms ease;
+    transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+    transition: top 300ms 350ms ease, transform 300ms 50ms ease, -webkit-transform 300ms 50ms ease;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: var(--white-color);
+    width: 30px;
+    height: 2px;
+    content: '';
+  }
+  
+  .navbar-toggler .navbar-toggler-icon::before {
+    top: -8px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon::after {
+    top: 8px;
+  }
+
+  /*-----------------background--------------------*/
+  .bg-logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    opacity: 0.92;
+  
+  }
+
+  /*-----------intro video---------------*/
+  .video-container{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+  }
+
+  .video-c1{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+  }
+
+  .video-c2{
+    object-fit: cover; 
+    width: 70%; 
+    height: auto; 
+    border-radius: 5%;
+  }
+
+  /*-------------content-----------------*/
+  .main-content-intro{
+    font-size: 32px;
+    margin-left: 7%;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  .main-content{
+    font-size: 30px;
+    margin-left: 7%;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  }
+  .sub-content{
+    font-size: 20px;
+    margin-left: 7%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  }
+
+  /*--------------animations----------*/
+ /* Initially hide sections */
+.fade-in, .slide-in-left, .slide-in-right {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px); /* Slight downward shift */
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out, visibility 0.8s;
+}
+
+/* Slide in from left */
+.slide-in-left {
+  transform: translateX(-50px);
+}
+
+/* Slide in from right */
+.slide-in-right {
+  transform: translateX(50px);
+}
+
+/* When section is in view, make it visible */
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) translateY(0);
+}
+
+/* When section is scrolled out, smoothly fade out */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px); /* Moves down while fading out */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out, visibility 1s;
+}
+
+/*-----------footer---------------*/
+/* Footer Styles */
+.footer {
+  background-color: black;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+}
+
+.footer-section h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+
+/* Style contact links */
+.contact-link {
+  color: white; /* Ensure text is black */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change color slightly when hovered */
+.contact-link:hover {
+  color: black;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: black;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Make Footer Content Stack on Small Screens */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Each Section */
+.footer-section {
+  flex: 1;
+  margin: 20px;
+  min-width: 250px;
+}
+
+/* Contact & Social Links */
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.footer-section a:hover {
+  color: #8DE602;
+}
+
+/* Social Icons Styling */
+.social-icon {
+  font-size: 22px;
+  margin: 10px; /* Adds spacing */
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  color: #8DE602;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  border-top: 1px solid white;
+  padding-top: 10px;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column; /* Stack items vertically */
+      text-align: center;
+  }
+
+  .footer-section {
+      margin-bottom: 20px;
+  }
+
+  /* Adjust Font Sizes */
+  .footer-section h3 {
+      font-size: 20px;
+  }
+
+  .footer-section p {
+      font-size: 16px;
+  }
+
+  .social-icon {
+      font-size: 20px;
+  }
+}
+/* Adjust Video Width on Mobile */
+@media (max-width: 768px) {
+  #video-section video {
+      width: 90%; /* Ensures the video scales properly */
+  }
+
+  .navbar-toggler {
+      border: none;
+      font-size: 24px;
+  }
+
+  .navbar-nav {
+      text-align: center;
+  }
+}
+
+@media (max-width:768px){
+  .main-content-intro{
+    font-size: 32px;
+    margin-left: 7%;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  .main-content{
+    font-size: 30px;
+    margin-left: 7%;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  }
+  .sub-content{
+    font-size: 20px;
+    margin-left: 7%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  }
+}
+/* Video Section - Desktop */
+#video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Make Video Responsive */
+#video-section video {
+  margin-top: 10%;
+  max-width: 70%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  #video-section {
+      height: auto;
+      padding: 10px;
+  }
+
+  #video-section video {
+      max-width: 95%;
+      border-radius: 5px;
+  }
+}
+
+
+
+
+
+
+
+
+  
