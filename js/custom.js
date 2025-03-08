@@ -37,6 +37,24 @@
 	function closeMenu() {
 		document.getElementById("navLinks").classList.remove("show");
 	}
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const menuButton = document.querySelector(".hamburger-menu");
+		const navMenu = document.querySelector(".nav-links");
+	
+		// Toggle the menu when clicking the hamburger button
+		menuButton.addEventListener("click", function () {
+			navMenu.classList.toggle("show");
+		});
+	
+		// Close menu when clicking a link
+		document.querySelectorAll(".nav-links a").forEach(link => {
+			link.addEventListener("click", function () {
+				navMenu.classList.remove("show");
+			});
+		});
+	});
+	
 	
 
 	document.addEventListener("scroll", function () {
