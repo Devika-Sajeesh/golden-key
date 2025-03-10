@@ -125,3 +125,12 @@
 		});
 	});
 })(window.jQuery);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".navbar-toggler");
+    const navLinks = document.querySelector(".navbar-collapse");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+});
