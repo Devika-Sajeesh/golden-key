@@ -42,33 +42,29 @@
     <main>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <div>
-                    <a class="navbar-brand">
-                        <h1 class="mainhead">GOLDEN KEY DUBAI</h1>
-                    </a>
-                </div>
-
-
+                <!-- Brand Name -->
+                <a class="navbar-brand">
+                    <h1 class="mainhead">GOLDEN KEY DUBAI</h1>
+                </a>
+        
+                <!-- Hamburger Button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+        
+                <!-- Collapsible Menu -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="nav-links" id="navLinks">
-                        <li><a href="index.html" onclick="closeMenu()">Home</a></li>
-                        <li><a href="#c1" onclick="closeMenu()">About</a></li>
-                        <li><a href="#section_3" onclick="closeMenu()">Events</a></li>
-                        <li><a href="#event-gallery" onclick="closeMenu()">Gallery</a></li>
-                        <li><a href="#footer" onclick="closeMenu()">Contact</a></li>
+                    <ul class="navbar-nav ms-auto">  <!-- Bootstrap's navbar-nav class -->
+                        <li class="nav-item"><a class="nav-link" href="index.html" onclick="closeMenu()">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#c1" onclick="closeMenu()">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#section_3" onclick="closeMenu()">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#event-gallery" onclick="closeMenu()">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#footer" onclick="closeMenu()">Contact</a></li>
                     </ul>
-
-                    <!-- <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a> -->
                 </div>
             </div>
         </nav>
-        
-      
         
         <section id="video-section" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
             <div style="display: flex; justify-content: center; align-items: center; width: 100%;">

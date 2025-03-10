@@ -42,17 +42,59 @@
 
 
 /* General Navbar Styles */
+/* Navbar General Styling */
 .navbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 20px;
-background-color: black;
-color: white;
-position: fixed;
-width: 100%;
-top: 0;
-z-index: 1000;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 20px;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-item {
+  margin: 10px;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: gray;
+}
+
+/* Hamburger Menu Button */
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* When the menu is expanded */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background: transparent;
+}
+
+.navbar-toggler-icon {
+  background-color: white; /* Ensure icon visibility */
+}
+
+/* Ensures dropdown is visible on small screens */
+@media (max-width: 991px) {
+  .navbar-collapse {
+      background: black;  /* Background for dropdown */
+      padding: 10px;
+  }
 }
 
 /*navbar*/
