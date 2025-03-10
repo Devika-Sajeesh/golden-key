@@ -254,7 +254,7 @@ color: white;
 /* Responsive Fix for Mobile */
 @media (max-width: 768px) {
   #video-section {
-      height: 50vh; /* Reduce height for mobile */
+      height: 150vh; /* Reduce height for mobile */
   }
 
   #video-container video {
