@@ -58,6 +58,7 @@
 /* Navbar Links */
 .navbar-nav .nav-item {
   margin: 10px;
+  color: white;
 }
 
 .navbar-nav .nav-link {
@@ -92,7 +93,7 @@
 /* Ensures dropdown is visible on small screens */
 @media (max-width: 991px) {
   .navbar-collapse {
-      background: white;  /* Background for dropdown */
+      background: black;  /* Background for dropdown */
       padding: 10px;
   }
 }
@@ -225,26 +226,44 @@ color: white;
 }
 
 /*-----------intro video---------------*/
-.video-container{
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh;
+#video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Full height */
+  width: 100%;
+  overflow: hidden; /* Prevent extra background space */
+  background-color: white; /* Optional: To hide extra space */
+  margin-top: 8%;
 }
 
-.video-c1{
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
+#video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
-.video-c2{
-  object-fit: cover; 
-  width: 70%; 
-  height: auto; 
-  border-radius: 5%;
+#video-container video {
+  object-fit: cover;
+  width: 100vw; /* Cover full width */
+  height: 100vh; /* Cover full height */
+  border-radius: 0; /* Remove rounded corners */
 }
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  #video-section {
+      height: 50vh; /* Reduce height for mobile */
+  }
+
+  #video-container video {
+      width: 100%; /* Make it fill the container */
+      height: auto; /* Maintain aspect ratio */
+  }
+}
+
+
 
 /*-------------content-----------------*/
 .mainhead{
@@ -428,6 +447,7 @@ padding-top: 10px;
 }
 }
 /* Adjust Video Width on Mobile */
+
 @media (max-width: 768px) {
 .navbar-toggler {
     border: none;
@@ -468,38 +488,6 @@ padding-top: 10px;
 
 }
 }
-/* Video Section - Desktop */
-#video-section {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-padding: 20px;
-}
 
-/* Make Video Responsive */
-#video-section video {
-margin-top: 10%;
-max-width: 70%;
-height: auto;
-border-radius: 10px;
-}
 
-/* Mobile View */
-@media (max-width: 768px) {
-#video-section {
-    height: auto;
-    padding: 10px;
-}
-
-#video-section video {
-    max-width: 95%;
-    border-radius: 5px;
-}
-
-.video-container video {
-  width: 100% !important;
-  height: auto !important;
-}
-}
 
