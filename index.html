@@ -40,29 +40,36 @@
 <body class="home-page">
 
     <main>
-        <nav class="navbar">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <div class="logoTesla">
+                <div>
                     <a class="navbar-brand" href="index.html">
-                        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 3rem;margin-top: 5%;color: white;">GOLDEN KEY DUBAI</h1>
+                        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 3rem;margin-top: 3%;color: white;">GOLDEN KEY DUBAI</h1>
                     </a>
                 </div>
-        
-                <!-- Hamburger Menu Button -->
-                <button class="hamburger-menu" onclick="toggleMenu()">
-                    <i class="fa-solid fa-bars"></i>
+
+                <!--                 <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a> -->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-        
-                <!-- Mobile & Desktop Navigation -->
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
-                    <li><a href="#c1" onclick="closeMenu()">About</a></li>
-                    <li><a href="#section_3" onclick="closeMenu()">Events</a></li>
-                    <li><a href="#event-gallery" onclick="closeMenu()">Gallery</a></li>
-                    <li><a href="#footer" onclick="closeMenu()">Contact</a></li>
-                </ul>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+                        <li><a href="#c1" onclick="closeMenu()">About</a></li>
+                        <li><a href="#section_3" onclick="closeMenu()">Events</a></li>
+                        <li><a href="#event-gallery" onclick="closeMenu()">Gallery</a></li>
+                        <li><a href="#footer" onclick="closeMenu()">Contact</a></li>
+                    </ul>
+
+                    <!-- <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a> -->
+                </div>
             </div>
         </nav>
+        
+      
         
         <section id="video-section" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
             <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
