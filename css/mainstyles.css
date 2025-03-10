@@ -86,6 +86,48 @@ transition: color 0.3s ease-in-out;
 color: gray;
 }
 
+/*expand navbar*/
+.navbar-expand-lg .navbar-nav {
+  padding-bottom: 30px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 0;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link.custom-btn:hover,
+.custom-border-btn:hover {
+  background: var(--custom-btn-bg-hover-color);
+  border-color: transparent;
+  color: var(--white-color);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  border-radius: var(--border-radius-large);
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transition: top 300ms 50ms ease, -webkit-transform 300ms 350ms ease;
+  transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+  transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(-45deg);
+}
+
 /* Hamburger Menu Button */
 .hamburger-menu {
 font-size: 26px;
@@ -114,6 +156,15 @@ color: white;
     display: flex;
 }
 
+.navbar-brand,
+.navbar-brand:hover {
+  color: var(--white-color);
+  font-size: var(--h5-font-size);
+  font-weight: var(--font-weight-bold);
+  width: 100px;
+  height: 30px;
+  display: flex;
+}
 .hamburger-menu {
     display: block;
 }
