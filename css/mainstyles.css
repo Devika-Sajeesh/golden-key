@@ -92,7 +92,7 @@
 /* Ensures dropdown is visible on small screens */
 @media (max-width: 991px) {
   .navbar-collapse {
-      background: black;  /* Background for dropdown */
+      background: white;  /* Background for dropdown */
       padding: 10px;
   }
 }
