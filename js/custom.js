@@ -1,0 +1,136 @@
+
+
+(function ($) {
+	"use strict";
+
+	// MENU
+	$(".navbar-collapse a").on("click", function () {
+		$(".navbar-collapse").collapse("hide");
+	});
+
+	// CUSTOM LINK
+	$(".smoothscroll").click(function () {
+		var el = $(this).attr("href");
+		var elWrapped = $(el);
+		var header_height = $(".navbar").height();
+
+		scrollToDiv(elWrapped, header_height);
+		return false;
+
+		function scrollToDiv(element, navheight) {
+			var offset = element.offset();
+			var offsetTop = offset.top;
+			var totalScroll = offsetTop - navheight;
+
+			$("body,html").animate(
+				{
+					scrollTop: totalScroll,
+				},
+				300
+			);
+		}
+	});
+	function toggleMenu() {
+		document.getElementById("navLinks").classList.toggle("show");
+	}
+	
+	function closeMenu() {
+		document.getElementById("navLinks").classList.remove("show");
+	}
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const menuButton = document.querySelector(".hamburger-menu");
+		const navMenu = document.querySelector(".nav-links");
+	
+		// Toggle the menu when clicking the hamburger button
+		menuButton.addEventListener("click", function () {
+			navMenu.classList.toggle("show");
+		});
+	
+		// Close menu when clicking a link
+		document.querySelectorAll(".nav-links a").forEach(link => {
+			link.addEventListener("click", function () {
+				navMenu.classList.remove("show");
+			});
+		});
+	});
+	
+	
+
+	document.addEventListener("scroll", function () {
+		let logo = document.getElementById("teslaLogo");
+		if (window.scrollY > 100) {
+			logo.classList.add("shrink");
+		} else {
+			logo.classList.remove("shrink");
+		}
+	});
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let animatedElements = document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right");
+    
+        function checkVisibility() {
+            animatedElements.forEach((element) => {
+                let rect = element.getBoundingClientRect();
+                let screenHeight = window.innerHeight;
+    
+                if (rect.top < screenHeight * 0.85 && rect.bottom > 0) { 
+                    element.classList.add("visible");
+                    element.classList.remove("hidden"); // Ensure visibility
+                }
+            });
+        }
+    
+        document.addEventListener("scroll", checkVisibility);
+        checkVisibility(); // Run on page load
+    });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        let animatedElements = document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right");
+    
+        function checkVisibility() {
+            animatedElements.forEach((element) => {
+                let rect = element.getBoundingClientRect();
+                let screenHeight = window.innerHeight;
+    
+                // Check if the element is in the viewport
+                if (rect.top < screenHeight * 0.85 && rect.bottom > 0) {
+                    element.classList.add("visible");
+                    element.classList.remove("hidden");
+                } else {
+                    // If the element is scrolled out, fade it out
+                    element.classList.remove("visible");
+                    element.classList.add("hidden");
+                }
+            });
+        }
+    
+        document.addEventListener("scroll", checkVisibility);
+        checkVisibility(); // Run on page load in case elements are already in view
+    });
+    
+    
+
+	// SMOOTH SCROLL
+	$(function () {
+		$(".smoothscroll").on("click", function (e) {
+			e.preventDefault();
+			$("html, body").animate(
+				{
+					scrollTop: $($(this).attr("href")).offset().top,
+				},
+				1000,
+				"easeInOutExpo"
+			);
+		});
+	});
+})(window.jQuery);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".navbar-toggler");
+    const navLinks = document.querySelector(".navbar-collapse");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+});
