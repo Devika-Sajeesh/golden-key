@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visitor Form</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="visitor-form/server.js"></script>
   </head>
   <body>
     <header>
@@ -238,5 +239,31 @@
       <button type="submit" onclick="validateForm()">Submit</button>
       <button type="reset" onclick="clearErrors()">Reset</button>
     </section>
+    <script>
+      function validateForm() {
+        const data = {
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          email: document.getElementById("email").value,
+          mobile: document.getElementById("mobile").value,
+          country: document.getElementById("country").value,
+        };
+
+        fetch("http://localhost:5000/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            alert(res.message);
+          })
+          .catch((err) => {
+            console.error("Error:", err);
+          });
+      }
+    </script>
   </body>
 </html>
