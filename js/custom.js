@@ -53,15 +53,6 @@
     });
   });
 
-  document.addEventListener("scroll", function () {
-    let logo = document.getElementById("teslaLogo");
-    if (window.scrollY > 100) {
-      logo.classList.add("shrink");
-    } else {
-      logo.classList.remove("shrink");
-    }
-  });
-
   document.addEventListener("DOMContentLoaded", function () {
     let animatedElements = document.querySelectorAll(
       ".fade-in, .slide-in-left, .slide-in-right"

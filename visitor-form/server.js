@@ -34,7 +34,8 @@ const visitorSchema = new mongoose.Schema({
 });
 
 const Visitor = mongoose.model("Visitor", visitorSchema);
-
+const twilio = require("twilio");
+const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 // POST Route
 app.post("/submit", async (req, res) => {
   try {

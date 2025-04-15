@@ -242,43 +242,136 @@ button[type="reset"]:hover {
   font-family: "Arial", sans-serif;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  section {
-    width: 70%;
-    padding: 2.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  section {
-    width: 85%;
-    padding: 2rem;
+/* Mobile-First Form Styles */
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   header {
-    font-size: 1.8rem;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+    font-size: 1.5rem;
   }
-}
 
-@media (max-width: 576px) {
+  header:after {
+    width: 60px;
+    height: 2px;
+  }
+
   section {
     width: 90%;
     padding: 1.5rem;
-    margin: 2rem auto;
+    margin: 1.5rem auto;
+    border-radius: 8px;
   }
 
+  section:before {
+    width: 3px;
+  }
+
+  /* Form Elements */
+  label {
+    margin: 1rem 0 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  /* Button Stacking */
   .button-group {
     flex-direction: column;
+    gap: 0.8rem;
   }
 
   button {
     width: 100%;
-    margin-bottom: 0.8rem;
+    margin: 0;
+    padding: 0.8rem;
   }
 
   button[type="reset"] {
     margin-right: 0;
+    order: 2; /* Reset button comes after submit */
+  }
+
+  /* Radio/Checkbox Groups */
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .radio-label,
+  .checkbox-label {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Tables */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Links */
+  p a {
+    display: block;
+    text-align: center;
+    padding: 0.7rem 1rem;
+  }
+
+  /* List Items */
+  ul li {
+    padding-left: 1.5rem;
+  }
+
+  ul li:before {
+    font-size: 1.2rem;
+    top: -0.1rem;
+  }
+}
+
+/* Specific iPhone SE/5s Fixes */
+@media (max-width: 320px) {
+  section {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  header {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0.6rem;
+  }
+}
+
+/* Tablet Adjustments (768px-992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+  section {
+    width: 75%;
+    padding: 2rem;
+  }
+
+  .button-group {
+    flex-direction: row;
+  }
+
+  button {
+    width: auto;
+    padding: 0.8rem 1.5rem;
   }
 }
