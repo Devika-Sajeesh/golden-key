@@ -1,31 +1,31 @@
-// server.js
 require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB connection
-const mongoose = require("mongoose");
+// Connect to MongoDB
 const mongoURI = process.env.MONGO_URI;
 
 mongoose
-  .connect(mongoURI, {})
-  .then(() => {
-    console.log("MongoDB connected");
+  .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
+  .then(() => console.log("✅ MongoDB connected successfully"))
   .catch((err) => {
-    console.error("MongoDB connection failed:", err.message);
+    console.error("❌ MongoDB connection failed:", err.message);
+    process.exit(1);
   });
 
-// Schema
+// Schema & Model
 const visitorSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
@@ -36,18 +36,24 @@ const visitorSchema = new mongoose.Schema({
 
 const Visitor = mongoose.model("Visitor", visitorSchema);
 
-// Route to handle form submission
+// API route
 app.post("/submit", async (req, res) => {
   try {
     const newVisitor = new Visitor(req.body);
     await newVisitor.save();
-    res.status(201).json({ message: "Data saved successfully!" });
+    res.status(201).json({ message: "✅ Data saved successfully!" });
   } catch (error) {
-    console.error("Error saving data:", error);
-    res.status(500).json({ message: "Server error!" });
+    console.error("❌ Error saving data:", error.message);
+    res.status(500).json({ message: "Server error! Could not save data." });
   }
 });
 
+// Test route
+app.get("/", (req, res) => {
+  res.send("🌟 Visitor Form API is running!");
+});
+
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

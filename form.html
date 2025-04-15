@@ -13,7 +13,6 @@
 
     <title>GOLDEN KEY DUBAI</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="visitor-form/server.js"></script>
   </head>
   <body>
     <header>
@@ -244,20 +243,50 @@
           });
         </script>
       </form>
-      <button type="submit" onclick="validateForm()">Submit</button>
-      <button type="reset" onclick="clearErrors()">Reset</button>
+      <button type="button" onclick="validateForm()">Submit</button>
+      <button type="reset" onclick="resetForm()">Reset</button>
+      <div
+        id="loadingMessage"
+        style="display: none; color: blue; font-weight: bold"
+      >
+        Please wait... Saving your data.
+      </div>
     </section>
     <script>
       function validateForm() {
-        const data = {
-          firstName: document.getElementById("firstName").value,
-          lastName: document.getElementById("lastName").value,
-          email: document.getElementById("email").value,
-          mobile: document.getElementById("mobile").value,
-          country: document.getElementById("country").value,
-        };
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const country = document.getElementById("country").value;
 
-        fetch("https://visitor-form-api.onrender.com", {
+        // Simple validations
+        if (!firstName || !lastName || !email || !mobile || !country) {
+          alert("Please fill all the fields!");
+          return;
+        }
+
+        // Basic email regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Enter a valid email address");
+          return;
+        }
+
+        // Optional: Mobile number regex (for basic validation)
+        const mobileRegex = /^[0-9]{7,15}$/;
+        if (!mobileRegex.test(mobile)) {
+          alert("Enter a valid mobile number");
+          return;
+        }
+
+        // Prepare data
+        const data = { firstName, lastName, email, mobile, country };
+
+        const loadingMessage = document.getElementById("loadingMessage");
+        loadingMessage.style.display = "block"; // Show loading
+
+        fetch("https://visitor-form-api.onrender.com/submit", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -267,9 +296,13 @@
           .then((res) => res.json())
           .then((res) => {
             alert(res.message);
+            loadingMessage.style.display = "none"; // Hide loading
+            resetForm();
           })
           .catch((err) => {
             console.error("Error:", err);
+            alert("Something went wrong. Please try again later.");
+            loadingMessage.style.display = "none"; // Hide loading
           });
       }
       function resetForm() {
