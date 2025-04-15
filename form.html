@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visitor Form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Golden Key Dubai - Premium Real Estate Services"
+    />
+    <meta name="author" content="Golden Key Dubai" />
+
+    <link rel="icon" type="image/x-icon" href="images/logobkd.jpg" />
+
+    <title>GOLDEN KEY DUBAI</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script src="visitor-form/server.js"></script>
   </head>
@@ -249,7 +257,7 @@
           country: document.getElementById("country").value,
         };
 
-        fetch("http://localhost:5000/submit", {
+        fetch("https://visitor-form-api.onrender.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -263,6 +271,13 @@
           .catch((err) => {
             console.error("Error:", err);
           });
+      }
+      function resetForm() {
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("country").value = "";
       }
     </script>
   </body>

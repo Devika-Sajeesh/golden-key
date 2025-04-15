@@ -166,13 +166,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Optional: Auto-rotate images
   let currentIndex = 0;
   function rotateImages() {
     currentIndex = (currentIndex + 1) % thumbnails.length;
     thumbnails[currentIndex].click();
   }
 
-  // Uncomment to enable auto-rotation (every 5 seconds)
   setInterval(rotateImages, 3500);
 });
