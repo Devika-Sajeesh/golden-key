@@ -260,7 +260,7 @@ button[type="reset"]:hover {
   }
 
   section {
-    width: 90%;
+    width: 80%;
     padding: 1.5rem;
     margin: 1.5rem auto;
     border-radius: 8px;
@@ -279,7 +279,7 @@ button[type="reset"]:hover {
   input,
   select,
   textarea {
-    padding: 0.7rem;
+    padding: 0.5rem;
     font-size: 0.95rem;
   }
 
@@ -291,8 +291,8 @@ button[type="reset"]:hover {
 
   button {
     width: 100%;
-    margin: 0;
-    padding: 0.8rem;
+    margin: 10;
+    padding: 0.9rem;
   }
 
   button[type="reset"] {

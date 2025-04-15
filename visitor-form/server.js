@@ -58,7 +58,12 @@ app.post("/submit", async (req, res) => {
       body: message,
     });
 
-    res.status(201).json({ message: "Data saved & WhatsApp message sent!" });
+    res
+      .status(201)
+      .json({
+        message:
+          "Data saved successfully, you will be contacted at the earliest.Thank You",
+      });
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ message: "Server error!" });
