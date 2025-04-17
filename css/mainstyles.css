@@ -663,7 +663,6 @@ p {
     font-size: 0.7rem;
   }
 }
-
 /* Alternating Content Layout */
 .content-alternate {
   display: flex;
@@ -673,31 +672,13 @@ p {
   margin: 4rem 0;
 }
 
-.content-left {
-  flex: 1;
-  min-width: 300px;
-}
-
-.content-right {
-  flex: 1;
-  min-width: 300px;
-}
 .content-left,
 .content-right {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
+  flex: 1;
+  min-width: 300px;
 }
-
-.content-left.visible,
-.content-right.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Delay the image slightly */
-.content-right.visible {
-  transition-delay: 0.2s;
+.content-right img {
+  margin-top: 2rem;
 }
 
 /* Image styling */
@@ -705,7 +686,7 @@ p {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
-  max-width: 100%;
+  width: 100%; /* Ensure the image takes full width */
   height: auto;
 }
 
@@ -713,6 +694,7 @@ p {
 .alternate-1 .content-left {
   order: 1;
 }
+
 .alternate-1 .content-right {
   order: 2;
 }
@@ -720,6 +702,7 @@ p {
 .alternate-2 .content-left {
   order: 2;
 }
+
 .alternate-2 .content-right {
   order: 1;
 }
@@ -728,16 +711,25 @@ p {
 @media (max-width: 768px) {
   .content-alternate {
     flex-direction: column;
-    gap: 2rem;
+    gap: 2rem; /* Reduced gap for mobile */
   }
 
   .content-left,
   .content-right {
-    order: 0 !important; /* Reset order on mobile */
-    width: 100%;
+    width: 100%; /* Ensure sections take full width */
+    order: initial; /* Reset order for mobile */
   }
 
   .content-image {
-    max-width: 100%;
+    width: 100%; /* Make sure the image stretches to full width */
+    max-width: 100%; /* Ensure image doesn't overflow */
+  }
+
+  /* Optional: Add a media query if you want to handle image alignment separately */
+  .content-left,
+  .content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
   }
 }

@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
     thumbnails[currentIndex].click();
   }
 
-  setInterval(rotateImages, 3500);
+  setInterval(rotateImages, 5000);
 });
 
 // Intersection Observer for scroll animations
